@@ -2,17 +2,18 @@ import React, { createContext, useReducer, useContext, useMemo, useEffect } from
 
 export const initialState = { theme: "light", data: [] };
 
-const ContextGlobal = createContext(undefined);
+export const ContextGlobal = createContext(undefined);
+
 const reducer = (state, action) => {
-  switch (action.type) {
-    case 'TOGGLE_THEME':
-      return { ...state, theme: state.theme === 'light' ? 'dark' : 'light' };
-    case 'SET_API_DATA':
-      return { ...state, data: action.payload };
-    default:
-      return state;
-  }
-};
+    switch (action.type) {
+      case 'TOGGLE_THEME':
+        return { ...state, theme: state.theme === 'light' ? 'dark' : 'light' };
+      case 'SET_API_DATA':
+        return { ...state, data: action.payload };
+      default:
+        return state;
+    }
+  };
 
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
