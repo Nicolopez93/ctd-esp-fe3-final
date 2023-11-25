@@ -2,15 +2,21 @@ import React, { createContext, useReducer, useContext, useMemo, useEffect } from
 
 export const initialState = { theme: "light", data: [] };
 
-export const ContextGlobal = createContext(undefined);
+export const ContextGlobal = createContext(initialState);
+
+const SET_THEME = "SET_THEME";
+const SET_DATA_API = "SET_DATA_API";
+const TOGGLE_THEME = "TOGGLE_THEME";
 
 const reducer = (state, action) => {
     switch (action.type) {
-      case 'TOGGLE_THEME':
-        return { ...state, theme: state.theme === 'light' ? 'dark' : 'light' };
-      case 'SET_API_DATA':
+      case SET_THEME:
+        return { ...state, theme: action.payload };
+      case SET_DATA_API:
         return { ...state, data: action.payload };
-      default:
+      case TOGGLE_THEME:
+        return { ...state, theme: state.theme === "light" ? "dark" : "light" };
+          default:
         return state;
     }
   };
@@ -23,7 +29,7 @@ export const ContextProvider = ({ children }) => {
       try {
         const response = await fetch(`https://jsonplaceholder.typicode.com/users`);
         const data = await response.json();
-        dispatch({ type: 'SET_API_DATA', payload: data });
+        dispatch({ type: SET_DATA_API, payload: data });
       } catch (error) {
         console.error('Error fetching API data:', error);
       }
@@ -31,7 +37,11 @@ export const ContextProvider = ({ children }) => {
     fetchData();
   }, []);
 
-  const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
+  const contextValue = useMemo(() => ({
+    theme: state.theme,
+    data: state.data,
+    toggleTheme: () => dispatch({ type: TOGGLE_THEME }),
+  }), [state.theme, state.data]);
 
   return (
     <ContextGlobal.Provider value={contextValue}>
@@ -41,4 +51,3 @@ export const ContextProvider = ({ children }) => {
 };
 
 export const useContextGlobal = () => useContext(ContextGlobal);
-
