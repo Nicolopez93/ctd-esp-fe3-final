@@ -15,7 +15,8 @@ const Home = () => {
       <div className='card-grid'>
       {apiData.map(({ id, name, username }) => (
           <Card key={id} id={id} name={name} username={username} />
-        ))}      </div>
+        ))}     
+      </div>
     </main>
   )
 }

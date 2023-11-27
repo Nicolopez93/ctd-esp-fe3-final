@@ -65,8 +65,8 @@ form{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 300px;
-  height: 100px;
+  width: 200px;
+  height: 400px;
   margin: 0 auto;
 }
 
