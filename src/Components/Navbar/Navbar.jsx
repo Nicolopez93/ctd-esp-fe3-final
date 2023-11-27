@@ -11,7 +11,7 @@ const Navbar = () => {
   const routes = [
     { path: '/home', name: 'Home' },
     { path: '/favs', name: 'Favs' },
-    { path: '/contacto', name: 'Contact' },
+    { path: '/contact', name: 'Contact' },
   ]
 
 
