@@ -1,6 +1,6 @@
 import React ,{useContext}from 'react'
 import { Link } from 'react-router-dom';
-import { useContextGlobal } from '../utils/global.context'
+import { useContextGlobal } from '../utils/global.context';
 import './navBar.css'
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
@@ -11,7 +11,7 @@ const Navbar = () => {
   const routes = [
     { path: '/home', name: 'Home' },
     { path: '/favs', name: 'Favs' },
-    { path: '/contact', name: 'Contact' },
+    { path: '/contacto', name: 'Contacto' },
   ]
 
 

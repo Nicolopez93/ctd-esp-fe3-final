@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import imgDoctor from '../../asserts/doctor.jpg';
-import '../Card/card.css';
+import './card.css';
 
 const Card = ({ name, username, id }) => {
 

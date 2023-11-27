@@ -4,9 +4,8 @@ import { useContextGlobal } from "../Components/utils/global.context";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-  const { theme } = useContextGlobal();
+  const { theme, data: apiData } = useContextGlobal();
 
-    const { data: apiData } = useContextGlobal();
     useEffect(() => {
       console.log(apiData);
     }, [])
