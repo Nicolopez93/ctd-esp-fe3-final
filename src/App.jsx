@@ -8,7 +8,7 @@ import Favs from './Routes/Favs'
 import Contact from './Routes/Contact'
 import Detail from './Routes/Detail'
 import { ContextProvider } from "./Components/utils/global.context";
-import './App.css'
+
 
 
 function App() {
