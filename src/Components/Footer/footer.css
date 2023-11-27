@@ -1,0 +1,50 @@
+.Footer {
+    margin-top: 30px;
+    background-color: #2C3E50;
+    color: #ECF0F1;
+    padding: 20px 0;
+  }
+  
+  .DigitalHouse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .RedesSociales {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .RedesSociales a {
+    text-decoration: none;
+  }
+  
+  .RedesSociales img {
+    width: 30px;
+  }
+  
+  .Logo {
+    text-align: center;
+  }
+  
+  .Logo p {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .Logo img {
+    width: 150px;
+  }
+  
+  @media (max-width: 768px) {
+    .RedesSociales {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .RedesSociales a {
+      margin: 5px;
+    }
+  }
