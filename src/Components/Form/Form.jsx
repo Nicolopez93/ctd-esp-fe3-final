@@ -1,4 +1,5 @@
 import React from "react";
+import './form.css';
 
 // modifique el css para que quede mas prolijo 
 

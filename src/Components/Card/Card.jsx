@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-
+import imgDoctor from '../../asserts/doctor.jpg';
+import '../Card/card.css';
 
 const Card = ({ name, username, id }) => {
 
@@ -27,6 +28,7 @@ const Card = ({ name, username, id }) => {
         {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
 
         <Link to={`/dentist/${id}`}>
+          <img src={imgDoctor} alt="doctor" />
           <p>Name: {name}</p>
           <p>Username: {username}</p>
           <p>ID: {id}</p>
