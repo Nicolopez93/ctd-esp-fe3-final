@@ -6,8 +6,8 @@ import Navbar from "./Components/Navbar/Navbar";
 import Home from './Routes/Home'
 import Favs from './Routes/Favs'
 import Contact from './Routes/Contact'
-import Detail from './Routes/Detail'
-import { ContextProvider } from "./Components/utils/global.context";
+import Detail from './Routes/Detail/Detail'
+import { ContextProvider } from "./utils/global.context";
 
 
 
