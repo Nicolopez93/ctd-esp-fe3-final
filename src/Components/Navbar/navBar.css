@@ -4,31 +4,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .navbar ul {
+  } 
+.navbar ul {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
   }
   
-  .navbar li {
+.navbar li {
     margin-right: 20px;
   }
   
-  .navbar a {
+.navbar a {
     text-decoration: none;
     color: black;
     font-weight: bold;
     transition: color 0.3s;
   }
-  
-  .navbar a:hover {
+.navbar a:hover {
     color:  #27ae60;
   }
   
-  .themeButton {
+.themeButton {
     background-color: #27ae60;
     color: #fff;
     border: none;
@@ -36,7 +34,6 @@
     border-radius: 4px;
     cursor: pointer;
   }
-  
-  .themeButton:hover {
+.themeButton:hover {
     background-color: #219653;
   }
