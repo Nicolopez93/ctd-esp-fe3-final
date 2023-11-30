@@ -15,7 +15,6 @@ const Favs = () => {
   }, [dispatch]);
 
   const handleDelete = (id) => {
-
     dispatch({ type: 'REMOVE_FAV', payload: { id } });
     alert('Se eliminó el Dentista de favoritos');
   }

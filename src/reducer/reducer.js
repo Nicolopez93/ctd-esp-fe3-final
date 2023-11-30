@@ -7,7 +7,7 @@ const reducer = (state, action) => {
       case "ADD_FAV":
         return { ...state, favlist :[...state.favlist, action.payload] };
       case "REMOVE_FAV":
-        return { ...state, deletelist : state.favlist.filter((item) => item.id !== action.payload.id) };
+        return { ...state, favlist : state.favlist.filter((item) => item.id !== action.payload.id) };
       case "SET_DETAIL":
         return { ...state, detail: action.payload };
         default:
