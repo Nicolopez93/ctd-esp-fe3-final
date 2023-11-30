@@ -5,32 +5,28 @@ import { useContextGlobal } from "../utils/global.context";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Favs = () => {
-  const [favCards, setFavCards] = useState([]);
-  const { theme } = useContextGlobal();
 
+  const { state, dispatch } = useContextGlobal();
 
   useEffect(() => {
-    const storedFavs = JSON.parse(localStorage.getItem('favs')) || [];
-    setFavCards(storedFavs);
-  }, []);
 
-  const handeleDelete = (id) => {
-    // Filtrar las tarjetas para eliminar la tarjeta con el id
-    const updatedCards = favCards.filter(card => card.id !== id);
-    // Actualizar el estado favCards con las tarjetas filtradas
-    setFavCards(updatedCards);
-     // Actualizar el almacenamiento local con las tarjetas filtradas
-    localStorage.setItem('favs', JSON.stringify(updatedCards));
+    const storedFavs = JSON.parse(localStorage.getItem('favs')) || [];
+    dispatch({ type: 'SET_FAVS', payload: storedFavs });
+  }, [dispatch]);
+
+  const handleDelete = (id) => {
+
+    dispatch({ type: 'REMOVE_FAV', payload: { id } });
     alert('Se eliminó el Dentista de favoritos');
   }
 
   return (
     <>
-    <div className={`favs ${theme}`}>
+    <div className={`favs ${state.theme}`}>
       <h1>Dentistas Favoritos</h1>
         <div className="card-grid">
-          {favCards.map(({ id, name, username }) => (
-          <Card key={id} id={id} name={name} username={username} onDelete={() => handeleDelete(id)}/>
+          {state.favlist.map(({ id, name, username }) => (
+          <Card key={id} id={id} name={name} username={username} onDelete={() => handleDelete(id)}/>
           ))}
         </div>
     </div>
