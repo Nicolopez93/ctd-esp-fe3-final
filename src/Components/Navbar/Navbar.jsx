@@ -6,7 +6,7 @@ import './navBar.css'
 
 const Navbar = () => {
 
-  const {state, dispatch} = useContextGlobal();
+  const { dispatch} = useContextGlobal();
 
   const routes = [
     { path: '/home', name: 'Home' },
@@ -16,7 +16,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className={`navbar ${state.theme}`}>
+    <nav className={`navbar`}>
       <ul>
         {routes.map((route, index) => (
           <li key={index}>

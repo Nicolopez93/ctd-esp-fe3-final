@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import Card from "../Components/Card/Card";
 import { useContextGlobal } from "../utils/global.context";
 
@@ -22,7 +22,7 @@ const Favs = () => {
 
   return (
     <>
-    <div className={`favs ${state.theme}`}>
+    <div className={`favs`}>
       <h1>Dentistas Favoritos</h1>
         <div className="card-grid">
           {state.favlist.map(({ id, name, username }) => (

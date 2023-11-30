@@ -12,10 +12,10 @@ import { useContextGlobal } from './utils/global.context';
 
 function App() {
 
-  const { theme } = useContextGlobal();
+  const { state } = useContextGlobal();
 
   return (
-    <div className={`App ${theme}`}>
+    <div className={`App ${state.theme}`}>
         <Router>
           <React.Fragment>
             <Navbar/>

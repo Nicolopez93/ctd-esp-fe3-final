@@ -1,7 +1,6 @@
 import React from 'react'
 import Card from '../Components/Card/Card'
 import { useContextGlobal } from "../utils/global.context";
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
 
@@ -9,7 +8,7 @@ const Home = () => {
   
 
   return (
-    <main className={`home ${state.theme}`} >
+    <main className={`home`} >
       <h1>Home</h1>
       <div className='card-grid'>
       {state.data.map(({ id, name, username }) => (
