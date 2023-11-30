@@ -1,35 +1,33 @@
-import reducer, { initialState, SET_DATA_API, TOGGLE_THEME } from '../reducer/reducer';
-import React, { createContext, useReducer, useContext, useMemo, useEffect } from 'react';
+import React, { createContext, useReducer, useContext, useEffect } from 'react';
+import axios from 'axios';
+import reducer from '../reducer/reducer'; 
 
-export const ContextGlobal = createContext(initialState);
+export const ContextGlobal = createContext();
 
+const initialState = {
+  data: [],
+  theme: 'light',
+  favlist: JSON.parse(localStorage.getItem('favlist')) || [],
+};
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  const url = 'https://jsonplaceholder.typicode.com/users';
+  
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/users`);
-        const data = await response.json();
-        dispatch({ type: SET_DATA_API, payload: data });
-      } catch (error) {
-        console.error('Error fetching API data:', error);
-      }
-    };
-    fetchData();
+    axios.get(url).then(res => dispatch({ type: "SET_DATA_API", payload: res.data }));
   }, []);
 
-  const contextValue = useMemo(() => ({
-    theme: state.theme,
-    data: state.data,
-    toggleTheme: () => dispatch({ type: TOGGLE_THEME }),
-  }), [state.theme, state.data]);
+  useEffect(() => {
+    localStorage.setItem('favlist', JSON.stringify(state.favlist));
+  }, [state.favlist]);
 
   return (
-    <ContextGlobal.Provider value={contextValue}>
+    <ContextGlobal.Provider value={{ state, dispatch }}>
       {children}
     </ContextGlobal.Provider>
   );
 };
+
+export default ContextProvider;
 
 export const useContextGlobal = () => useContext(ContextGlobal);
