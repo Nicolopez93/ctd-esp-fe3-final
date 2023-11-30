@@ -1,4 +1,4 @@
-import React ,{useContext}from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import { useContextGlobal } from '../../utils/global.context';
 import './navBar.css'
@@ -6,7 +6,7 @@ import './navBar.css'
 
 const Navbar = () => {
 
-  const {theme, toggleTheme} = useContextGlobal();
+  const { dispatch} = useContextGlobal();
 
   const routes = [
     { path: '/home', name: 'Home' },
@@ -16,7 +16,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className={`navbar ${theme}`}>
+    <nav className={`navbar`}>
       <ul>
         {routes.map((route, index) => (
           <li key={index}>
@@ -24,7 +24,7 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      <button onClick={toggleTheme}>Change theme</button>
+      <button onClick={() => dispatch({type: 'TOGGLE_THEME'})}>Change theme</button>
     </nav>
   )
 }
