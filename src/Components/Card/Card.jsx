@@ -22,6 +22,17 @@ const Card = ({ name, username, id }) => {
     }
   }
 
+  const deleteFav = ()=>{
+    
+    const existingCards = JSON.parse(localStorage.getItem('favs')) || [];
+
+    const updatedCards = existingCards.filter(card => card.id !== id);
+
+    localStorage.setItem('favs', JSON.stringify(updatedCards));
+
+    alert('Se eliminó la tarjeta de favoritos');
+  }
+
   return (
     <div className="card">
         <Link to={`/dentist/${id}`}>
@@ -30,8 +41,11 @@ const Card = ({ name, username, id }) => {
           <p>Username: {username}</p>
           <p>ID: {id}</p>
         </Link>
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="favButton">Add fav</button>
+        {window.location.pathname === '/home' && (
+        <button onClick={addFav} 
+        className="favButton">Add fav</button>)}
+        {window.location.pathname === '/favs' &&<button onClick={deleteFav} 
+        className="favButton">Delete fav</button>}
     </div>
   );
 };

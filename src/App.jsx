@@ -7,13 +7,15 @@ import Home from './Routes/Home'
 import Favs from './Routes/Favs'
 import Contact from './Routes/Contact'
 import Detail from './Routes/Detail/Detail'
-import { ContextProvider } from "./utils/global.context";
-
+import { useContextGlobal } from './utils/global.context';
 
 
 function App() {
+
+  const { theme } = useContextGlobal();
+
   return (
-      <ContextProvider>
+    <div className={`App ${theme}`}>
         <Router>
           <React.Fragment>
             <Navbar/>
@@ -28,7 +30,7 @@ function App() {
             <Footer/>
           </React.Fragment>
         </Router> 
-      </ContextProvider>
+    </div>
   )
 }
 

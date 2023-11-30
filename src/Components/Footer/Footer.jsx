@@ -26,7 +26,6 @@ const Footer = () => {
       </div>
 
       <div className="Logo">
-        <p>Powered by</p>
         <img src={DH} alt='DH' />
       </div>
     </section>

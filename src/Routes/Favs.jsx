@@ -14,13 +14,23 @@ const Favs = () => {
     setFavCards(storedFavs);
   }, []);
 
+  const handeleDelete = (id) => {
+    // Filtrar las tarjetas para eliminar la tarjeta con el id
+    const updatedCards = favCards.filter(card => card.id !== id);
+    // Actualizar el estado favCards con las tarjetas filtradas
+    setFavCards(updatedCards);
+     // Actualizar el almacenamiento local con las tarjetas filtradas
+    localStorage.setItem('favs', JSON.stringify(updatedCards));
+    alert('Se eliminó el Dentista de favoritos');
+  }
+
   return (
     <>
     <div className={`favs ${theme}`}>
-      <h1>Dentists Favs</h1>
+      <h1>Dentistas Favoritos</h1>
         <div className="card-grid">
           {favCards.map(({ id, name, username }) => (
-          <Card key={id} id={id} name={name} username={username} />
+          <Card key={id} id={id} name={name} username={username} onDelete={() => handeleDelete(id)}/>
           ))}
         </div>
     </div>
