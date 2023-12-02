@@ -18,7 +18,7 @@ const Form = () => {
   const handelSubmite = (e) => {
     e.preventDefault();
     if (formData.nombreCompleto.length <= 5){
-      setError("Por favor ingrese un nombre valido con una longitud mayor a 5");
+      setError("Por favor ingrese un nombre con una longitud mayor a 5 caracteres");
       return;
     } 
     if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
@@ -27,7 +27,7 @@ const Form = () => {
     }
     setError ("");
 
-    console.log("Formulario enviado con exito : ", formData);
+    console.log("Formulario enviado con éxito : ", formData);
     alert(`Gracias ${formData.nombreCompleto}, te contactaremos vía mail`);
   }
 
@@ -37,17 +37,17 @@ const Form = () => {
     <div>
       <form onSubmit={handelSubmite}>
       <label>
-        Nombre Completo :
+        Nombre Completo:
         <input type="text" name="nombreCompleto" value={formData.nombreCompleto} onChange={handelChange} />
       </label>
       <br/>
       <label>
-        Email :
+        Email:
         <input type="email" name="email" value={formData.email} onChange={handelChange} />
       </label>
       <br/>
       <label>
-          Envianos tu preguntas:
+          Envianos tus inquietudes:
           <textarea name="texto" value={formData.texto} onChange={handelChange}/>
         </label>
       <button type="submit">Enviar</button>

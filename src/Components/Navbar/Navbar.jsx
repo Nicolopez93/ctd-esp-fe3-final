@@ -24,7 +24,7 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      <button onClick={() => dispatch({type: 'TOGGLE_THEME'})}>Change theme</button>
+      <button onClick={() => dispatch({type: 'TOGGLE_THEME'})}>Cambiar tema</button>
     </nav>
   )
 }

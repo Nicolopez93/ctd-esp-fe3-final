@@ -1,10 +1,10 @@
 import React from 'react';
-import './footer.css';
-import Facebook from '../../asserts/ico-facebook.png';
-import Instagram from '../../asserts/ico-instagram.png';
-import WhatsApp from '../../asserts/ico-whatsapp.png';
-import Tiktok from '../../asserts/ico-tiktok.png';
-import DH from '../../asserts/DH.png';
+import '../Footer/footer.css';
+import Facebook from '../../assets/ico-facebook.png';
+import Instagram from '../../assets/ico-instagram.png';
+import WhatsApp from '../../assets/ico-whatsapp.png';
+import Tiktok from '../../assets/ico-tiktok.png';
+import DH from '../../assets/DH.png';
 
 const Footer = () => {
   return (

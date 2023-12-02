@@ -21,14 +21,30 @@ const Detail = () => {
   }, [url, dispatch]);
   
   return (
-    <div className={`detail ${state.theme}`}>
-      <h1>Dentista {state.detail && state.detail.id} </h1>
+    <div className={`detail`}>
+      <h1>Dentista N°{state.detail && state.detail.id} </h1>
       {state.detail && (
         <>
-          <p>Username: {state.detail.name}</p>
-          <p>Email: {state.detail.email}</p>
-          <p>Phone: {state.detail.phone}</p>
-          <p>Website: {state.detail.website}</p>
+<table className='table-style'>
+  <tbody>
+    <tr>
+      <td>Nombre:</td>
+      <td>{state.detail.name}</td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>{state.detail.email}</td>
+    </tr>
+    <tr>
+      <td>Teléfono:</td>
+      <td>{state.detail.phone}</td>
+    </tr>
+    <tr>
+      <td>Sitio web:</td>
+      <td>{state.detail.website}</td>
+    </tr>
+  </tbody>
+</table>
         </>
       )}
       </div>
